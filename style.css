@@ -120,17 +120,48 @@ section h2 {
   justify-content: center;
 }
 
+.hero-layout {
+  display: flex; /* Places photo and text side by side */
+  align-items: flex-start; /* Align items to the top */
+  justify-content: center; /* Centers the whole layout */
+  gap: 24px; /* Slightly tighter space between photo and text */
+  flex-wrap: wrap; /* Stacks on smaller screens */
+}
+
+.hero-photo-wrapper {
+  max-width: 320px; /* Slightly taller photo to align with text/buttons */
+}
+
+.hero-photo {
+  width: 100%; /* Make photo fill its wrapper */
+  border-radius: 12px; /* Soft rounded square */
+  border: 4px solid #14b8a6; /* Teal border */
+  box-shadow: 0 12px 35px rgba(20, 184, 166, 0.5); /* Glowing shadow */
+  object-fit: cover; /* Crop nicely */
+}
+
 .hero-content {
-  max-width: 800px;
+  max-width: 560px; /* Slightly narrower to sit alongside the photo */
+  text-align: left; /* Align text next to photo */
 }
 
 #hero h2 {
-  font-size: 72px; /* Very large heading */
+  font-size: 48px; /* Balanced heading size */
   font-weight: 800; /* Extra bold */
   color: white;
-  margin-bottom: 20px;
-  letter-spacing: -2px;
+  margin-bottom: 12px; /* Tighter spacing */
+  letter-spacing: -1px; /* Moderate spacing */
+  line-height: 1.1; /* Tighter line height */
   animation: fadeInUp 1s ease-out; /* Smooth fade-in animation */
+  text-align: left;
+}
+
+.hero-headline span {
+  display: block; /* Each line on its own */
+}
+
+.hero-headline span:nth-child(2) {
+  color: #14b8a6; /* Accent color for middle line */
 }
 
 .hero-subtitle {
@@ -146,6 +177,10 @@ section h2 {
   max-width: 600px;
   margin: 0 auto;
   animation: fadeInUp 1.4s ease-out;
+}
+
+.hero-subtitle.hero-subtitle-split span {
+  display: block; /* Force intentional line breaks */
 }
 
 /* Hero buttons container */
