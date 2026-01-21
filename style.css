@@ -20,6 +20,27 @@ body {
   background-size: cover; /* Makes image fill the entire background */
   background-attachment: fixed; /* Creates parallax effect */
   font-size: 18px; /* Slightly larger base font size */
+  animation: slowShiftWithColor 15s ease-in-out infinite; /* Shifts and changes color */
+}
+
+/* Combined animation - shifts background and changes colors like aurora */
+@keyframes slowShiftWithColor {
+  0%, 100% {
+    background-position: 0% 0%; /* Starting position */
+    filter: hue-rotate(0deg) brightness(0.95); /* Starting color */
+  }
+  25% {
+    background-position: 4% 2%; /* Move right and slightly down */
+    filter: hue-rotate(15deg) brightness(1); /* Shift towards cyan */
+  }
+  50% {
+    background-position: 8% 4%; /* Move more to the right */
+    filter: hue-rotate(30deg) brightness(1.05); /* More vibrant cyan/teal */
+  }
+  75% {
+    background-position: 4% 2%; /* Come back towards center */
+    filter: hue-rotate(15deg) brightness(1); /* Shift back */
+  }
 }
 
 /* Header and Navigation */
@@ -138,6 +159,23 @@ section h2 {
   border: 4px solid #14b8a6; /* Teal border */
   box-shadow: 0 12px 35px rgba(20, 184, 166, 0.5); /* Glowing shadow */
   object-fit: cover; /* Crop nicely */
+  animation: counterColorShift 15s ease-in-out infinite; /* Cancels out the background color animation */
+}
+
+/* Counter animation - keeps photo colors stable while background changes */
+@keyframes counterColorShift {
+  0%, 100% {
+    filter: hue-rotate(0deg) brightness(1.05); /* Reverse the starting shift */
+  }
+  25% {
+    filter: hue-rotate(-15deg) brightness(1); /* Opposite of first shift */
+  }
+  50% {
+    filter: hue-rotate(-30deg) brightness(0.95); /* Opposite of middle shift */
+  }
+  75% {
+    filter: hue-rotate(-15deg) brightness(1); /* Opposite of third shift */
+  }
 }
 
 .hero-content {
