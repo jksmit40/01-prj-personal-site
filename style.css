@@ -87,7 +87,18 @@ nav {
 }
 
 nav h1 {
-  font-size: 24px;
+  font-size: 28px; /* Larger, more prominent text */
+  font-weight: 700; /* Bold weight */
+  color: #06d6a0; /* Brighter teal accent color */
+  letter-spacing: 0.5px; /* Slightly more spaced letters */
+  transition: all 0.3s ease; /* Smooth animation on hover */
+  text-shadow: 0 0 25px rgba(20, 184, 166, 0.9); /* Bright glowing effect */
+}
+
+nav h1:hover {
+  color: #00ffcc; /* Even brighter cyan on hover */
+  text-shadow: 0 0 40px rgba(20, 184, 166, 1); /* Maximum glow on hover */
+  transform: scale(1.05); /* Slightly enlarge on hover */
 }
 
 /* Navigation list */
