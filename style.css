@@ -62,7 +62,7 @@ nav {
 
 .nav-icon:hover {
   transform: scale(1.1); /* Slightly enlarge on hover */
-  box-shadow: 0 0 15px rgba(20, 184, 166, 0.5); /* Glowing effect */
+  box-shadow: 0 0 15px rgba(20, 184, 166, 0.8); /* Brighter glowing effect */
 }
 
 nav h1 {
@@ -202,7 +202,7 @@ section h2 {
 
 .skill-box:hover {
   transform: translateY(-10px); /* Lift up on hover */
-  box-shadow: 0 10px 30px rgba(20, 184, 166, 0.3); /* Glowing shadow on hover */
+  box-shadow: 0 10px 30px rgba(20, 184, 166, 0.6); /* Brighter glowing shadow on hover */
   border-color: #0d9488;
 }
 
@@ -246,7 +246,7 @@ section h2 {
 
 .project-card:hover {
   transform: translateY(-10px); /* Lift effect */
-  box-shadow: 0 10px 40px rgba(20, 184, 166, 0.3); /* Stronger glow on hover */
+  box-shadow: 0 10px 40px rgba(20, 184, 166, 0.6); /* Brighter stronger glow on hover */
 }
 
 /* Project image placeholder */
@@ -356,15 +356,21 @@ section h2 {
 
 .social-link:hover {
   transform: translateY(-5px); /* Lift up on hover */
-  box-shadow: 0 10px 30px rgba(20, 184, 166, 0.3); /* Glowing shadow */
+  box-shadow: 0 10px 30px rgba(20, 184, 166, 0.6); /* Brighter glowing shadow */
   border-color: #0d9488; /* Darker teal border */
   background-color: rgba(26, 26, 26, 0.95); /* Slightly more solid */
 }
 
 /* Social media icon */
 .social-icon {
-  font-size: 36px; /* Large icon size */
+  width: 50px; /* Icon width */
+  height: 50px; /* Icon height */
   display: block;
+  transition: transform 0.3s ease; /* Smooth animation */
+}
+
+.social-link:hover .social-icon {
+  transform: scale(1.1); /* Slightly enlarge icon on hover */
 }
 
 /* Social media text label */
