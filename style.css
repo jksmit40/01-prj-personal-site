@@ -129,7 +129,7 @@ section h2 {
 }
 
 .hero-photo-wrapper {
-  max-width: 320px; /* Slightly taller photo to align with text/buttons */
+  max-width: 300px; /* Slightly shorter photo to better align with buttons */
 }
 
 .hero-photo {
@@ -249,11 +249,70 @@ section h2 {
   background-color: rgba(26, 26, 26, 0.75); /* Semi-transparent dark background */
 }
 
+/* About container with sidebar layout */
+.about-container {
+  display: flex; /* Places sidebar and content side by side */
+  gap: 30px; /* Space between sidebar and content */
+  align-items: flex-start; /* Aligns to the top */
+  justify-content: center;
+}
+
+/* About sidebar with accent bar and icons */
+.about-sidebar {
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+/* Accent bar on the left */
+.about-sidebar::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 4px; /* Thin accent bar */
+  background-color: #14b8a6; /* Teal color */
+  border-radius: 2px;
+}
+
+/* About icons container */
+.about-icons {
+  display: flex; /* Stack icons vertically */
+  flex-direction: column;
+  gap: 20px; /* Space between icons */
+  padding-left: 20px; /* Space from accent bar */
+}
+
+/* Individual about icon */
+.about-icon {
+  width: 55px; /* Icon size */
+  height: 55px;
+  object-fit: contain;
+  transition: all 0.3s ease; /* Smooth animation */
+  border: 2px solid rgba(20, 184, 166, 0.3); /* Subtle border */
+  border-radius: 8px; /* Rounded corners */
+  padding: 8px;
+  background-color: rgba(26, 26, 26, 0.5); /* Subtle background */
+}
+
+.about-icon:hover {
+  transform: translateX(8px) scale(1.1); /* Slide and scale on hover */
+  border-color: #14b8a6; /* Brighter border */
+  background-color: rgba(26, 26, 26, 0.85);
+}
+
+/* About content text */
+.about-content {
+  flex: 1;
+  max-width: 700px;
+}
+
 #about p {
-  max-width: 800px;
-  margin: 20px auto; /* More space between paragraphs */
+  max-width: 700px;
+  margin: 20px 0; /* More space between paragraphs */
   font-size: 20px; /* Larger text */
-  text-align: center;
+  text-align: left;
   line-height: 1.8;
 }
 
