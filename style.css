@@ -148,6 +148,55 @@ section h2 {
   animation: fadeInUp 1.4s ease-out;
 }
 
+/* Hero buttons container */
+.hero-buttons {
+  display: flex; /* Places buttons side by side */
+  gap: 20px; /* Space between buttons */
+  justify-content: center; /* Centers buttons */
+  margin-top: 40px;
+  flex-wrap: wrap; /* Wraps on small screens */
+  animation: fadeInUp 1.6s ease-out;
+}
+
+/* Primary button - main call to action */
+.btn-primary {
+  background-color: #14b8a6; /* Teal background */
+  color: white;
+  padding: 15px 40px; /* Button size */
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 18px;
+  transition: all 0.3s ease;
+  border: 2px solid #14b8a6;
+}
+
+.btn-primary:hover {
+  background-color: #0d9488; /* Darker teal */
+  transform: translateY(-3px); /* Lift effect */
+  box-shadow: 0 10px 30px rgba(20, 184, 166, 0.4); /* Glow effect */
+}
+
+/* Secondary button - alternative action */
+.btn-secondary {
+  background-color: transparent; /* Transparent background */
+  color: #14b8a6; /* Teal text */
+  padding: 15px 40px;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 18px;
+  transition: all 0.3s ease;
+  border: 2px solid #14b8a6; /* Teal border */
+}
+
+.btn-secondary:hover {
+  background-color: #14b8a6; /* Teal background on hover */
+  color: white; /* White text on hover */
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(20, 184, 166, 0.4);
+}
+
 /* Fade in animation */
 @keyframes fadeInUp {
   from {
@@ -291,6 +340,26 @@ section h2 {
   line-height: 1.6;
 }
 
+/* Project technology tags container */
+.project-tags {
+  display: flex; /* Places tags side by side */
+  gap: 10px; /* Space between tags */
+  justify-content: center; /* Centers tags */
+  margin-bottom: 20px;
+  flex-wrap: wrap; /* Wraps tags on small screens */
+}
+
+/* Individual technology tag */
+.tag {
+  background-color: rgba(20, 184, 166, 0.2); /* Light teal background */
+  color: #14b8a6; /* Teal text */
+  padding: 5px 15px; /* Tag size */
+  border-radius: 20px; /* Rounded pill shape */
+  font-size: 14px;
+  font-weight: 600;
+  border: 1px solid #14b8a6; /* Teal border */
+}
+
 .project-card a {
   display: inline-block; /* Makes link behave like a button */
   background-color: #14b8a6; /* Teal background */
@@ -371,6 +440,16 @@ section h2 {
 
 .social-link:hover .social-icon {
   transform: scale(1.1); /* Slightly enlarge icon on hover */
+}
+
+/* GitHub emoji icon styling */
+.github-icon {
+  font-size: 50px; /* Match image icon size */
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 /* Social media text label */
