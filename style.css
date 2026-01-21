@@ -330,6 +330,54 @@ section h2 {
   text-decoration: underline;
 }
 
+/* Social media links container */
+.social-links {
+  display: flex; /* Places links side by side */
+  justify-content: center; /* Centers the links */
+  gap: 20px; /* Space between links */
+  margin-top: 40px;
+  flex-wrap: wrap; /* Wraps to next line on small screens */
+}
+
+/* Individual social link button */
+.social-link {
+  background-color: rgba(26, 26, 26, 0.85); /* Semi-transparent dark background */
+  padding: 20px 30px; /* Space inside button */
+  border-radius: 12px; /* Rounded corners */
+  border: 2px solid #14b8a6; /* Teal border */
+  display: flex; /* Allows icon and text side by side */
+  flex-direction: column; /* Stacks icon above text */
+  align-items: center; /* Centers content */
+  gap: 10px; /* Space between icon and text */
+  transition: all 0.3s ease; /* Smooth animation */
+  min-width: 120px; /* Minimum button width */
+  text-decoration: none; /* Removes underline */
+}
+
+.social-link:hover {
+  transform: translateY(-5px); /* Lift up on hover */
+  box-shadow: 0 10px 30px rgba(20, 184, 166, 0.3); /* Glowing shadow */
+  border-color: #0d9488; /* Darker teal border */
+  background-color: rgba(26, 26, 26, 0.95); /* Slightly more solid */
+}
+
+/* Social media icon */
+.social-icon {
+  font-size: 36px; /* Large icon size */
+  display: block;
+}
+
+/* Social media text label */
+.social-text {
+  color: #14b8a6; /* Teal text */
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.social-link:hover .social-text {
+  color: #0d9488; /* Darker teal on hover */
+}
+
 /* Footer */
 footer {
   background-color: rgba(26, 26, 26, 0.85); /* Semi-transparent dark background */
