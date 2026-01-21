@@ -5,12 +5,18 @@
   box-sizing: border-box;
 }
 
+/* Smooth scrolling for the whole page */
+html {
+  scroll-behavior: smooth;
+}
+
 /* Body - main page settings */
 body {
-  font-family: Arial, sans-serif; /* Simple, readable font */
-  line-height: 1.6; /* Space between lines of text */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Modern, clean font */
+  line-height: 1.8; /* More space between lines */
   color: #e5e7eb; /* Light gray text color for dark theme */
   background-color: #0f1419; /* Very dark background */
+  font-size: 18px; /* Slightly larger base font size */
 }
 
 /* Header and Navigation */
@@ -48,45 +54,89 @@ nav a {
   color: white;
   text-decoration: none; /* Removes underline */
   font-size: 16px;
+  transition: all 0.3s ease; /* Smooth transition effect */
+  padding: 5px 10px;
+  border-radius: 4px;
 }
 
 nav a:hover {
   color: #14b8a6; /* Teal when hovering */
+  background-color: rgba(20, 184, 166, 0.1); /* Subtle background on hover */
 }
 
 /* All sections */
 section {
   max-width: 1200px; /* Maximum width */
   margin: 0 auto; /* Centers the section */
-  padding: 60px 20px; /* Space inside section */
+  padding: 100px 20px; /* More space inside sections - minimalist approach */
 }
 
 /* Section headings */
 section h2 {
-  font-size: 32px;
-  margin-bottom: 20px; /* Space below heading */
+  font-size: 48px; /* Much larger heading */
+  font-weight: 700; /* Bolder text */
+  margin-bottom: 60px; /* More space below heading */
   text-align: center;
   color: #14b8a6; /* Teal accent */
+  letter-spacing: -1px; /* Tighter letter spacing for modern look */
 }
 
 /* Hero Section - First section with welcome message */
 #hero {
-  background: linear-gradient(135deg, #0f1419 0%, #14b8a6 100%); /* Dark to teal gradient */
+  background: linear-gradient(135deg, rgba(15, 20, 25, 0.95) 0%, rgba(20, 184, 166, 0.85) 100%);
+  /* If you want to add a background image, uncomment below and add your image to img/ folder:
+  background-image: url('img/hero-background.jpg');
+  background-size: cover;
+  background-position: center;
+  background-blend-mode: overlay;
+  */
   color: white;
   text-align: center;
-  padding: 100px 20px; /* Extra padding for impact */
+  padding: 180px 20px; /* Much more padding for impact */
+  min-height: 100vh; /* Full screen height */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-content {
+  max-width: 800px;
 }
 
 #hero h2 {
-  font-size: 48px;
+  font-size: 72px; /* Very large heading */
+  font-weight: 800; /* Extra bold */
   color: white;
   margin-bottom: 20px;
+  letter-spacing: -2px;
+  animation: fadeInUp 1s ease-out; /* Smooth fade-in animation */
+}
+
+.hero-subtitle {
+  font-size: 28px; /* Larger subtitle */
+  font-weight: 300; /* Light weight for contrast */
+  margin-bottom: 20px;
+  color: #14b8a6;
+  animation: fadeInUp 1.2s ease-out;
 }
 
 #hero p {
   font-size: 20px;
   max-width: 600px;
-  margin: 0 auto; /* Centers the paragraph */
+  margin: 0 auto;
+  animation: fadeInUp 1.4s ease-out;
+}
+
+/* Fade in animation */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* About Section */
@@ -96,9 +146,10 @@ section h2 {
 
 #about p {
   max-width: 800px;
-  margin: 10px auto; /* Centers paragraphs */
-  font-size: 18px;
+  margin: 20px auto; /* More space between paragraphs */
+  font-size: 20px; /* Larger text */
   text-align: center;
+  line-height: 1.8;
 }
 
 /* Skills Section */
@@ -118,17 +169,26 @@ section h2 {
 /* Individual skill box */
 .skill-box {
   background-color: #1a1a1a; /* Dark background */
-  padding: 30px;
-  border-radius: 8px; /* Rounded corners */
+  padding: 40px; /* More padding */
+  border-radius: 12px; /* More rounded corners */
   text-align: center;
   width: 250px; /* Fixed width */
   border: 2px solid #14b8a6; /* Teal border */
+  transition: all 0.3s ease; /* Smooth animation */
+  cursor: pointer;
+}
+
+.skill-box:hover {
+  transform: translateY(-10px); /* Lift up on hover */
+  box-shadow: 0 10px 30px rgba(20, 184, 166, 0.3); /* Glowing shadow on hover */
+  border-color: #0d9488;
 }
 
 .skill-box h3 {
   color: #14b8a6; /* Teal accent */
-  margin-bottom: 10px;
-  font-size: 24px;
+  margin-bottom: 15px;
+  font-size: 26px; /* Larger heading */
+  font-weight: 700;
 }
 
 .skill-box p {
@@ -152,38 +212,76 @@ section h2 {
 
 /* Individual project card */
 .project-card {
-  background-color: #0f1419; /* Very dark background */
-  padding: 30px;
-  border-radius: 8px;
-  box-shadow: 0 4px 10px rgba(20, 184, 166, 0.2); /* Teal glow shadow */
-  width: 300px;
-  text-align: center;
+  background-color: #1a1a1a; /* Dark background */
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(20, 184, 166, 0.15); /* Softer shadow */
+  width: 350px; /* Slightly wider */
+  overflow: hidden; /* Keeps content inside rounded corners */
+  transition: all 0.3s ease;
   border: 1px solid #2d2d2d; /* Subtle border */
+}
+
+.project-card:hover {
+  transform: translateY(-10px); /* Lift effect */
+  box-shadow: 0 10px 40px rgba(20, 184, 166, 0.3); /* Stronger glow on hover */
+}
+
+/* Project image placeholder */
+.project-image {
+  width: 100%;
+  height: 200px;
+  background: linear-gradient(135deg, #1a1a1a 0%, #14b8a6 100%); /* Gradient placeholder */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.project-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Makes image fill the space */
+  transition: transform 0.3s ease;
+}
+
+.project-card:hover .project-image img {
+  transform: scale(1.1); /* Zoom effect on hover */
+}
+
+/* Project info section */
+.project-info {
+  padding: 30px;
+  text-align: center;
 }
 
 .project-card h3 {
   color: #14b8a6; /* Teal accent */
   margin-bottom: 15px;
-  font-size: 22px;
+  font-size: 24px; /* Larger title */
+  font-weight: 700;
 }
 
 .project-card p {
   color: #9ca3af; /* Light gray text */
-  margin-bottom: 20px;
+  margin-bottom: 25px;
   font-size: 16px;
+  line-height: 1.6;
 }
 
 .project-card a {
   display: inline-block; /* Makes link behave like a button */
   background-color: #14b8a6; /* Teal background */
   color: white;
-  padding: 10px 20px;
+  padding: 12px 30px; /* Larger button */
   text-decoration: none;
-  border-radius: 5px;
+  border-radius: 6px;
+  font-weight: 600;
+  transition: all 0.3s ease;
 }
 
 .project-card a:hover {
   background-color: #0d9488; /* Darker teal on hover */
+  transform: scale(1.05); /* Slight grow effect */
 }
 
 /* Contact Section */
@@ -193,18 +291,20 @@ section h2 {
 }
 
 #contact p {
-  font-size: 18px;
-  margin: 10px 0;
+  font-size: 20px; /* Larger text */
+  margin: 15px 0;
 }
 
 #contact a {
   color: #14b8a6; /* Teal links */
   text-decoration: none;
+  transition: all 0.3s ease;
+  font-weight: 600;
 }
 
 #contact a:hover {
-  text-decoration: underline;
   color: #0d9488; /* Darker teal on hover */
+  text-decoration: underline;
 }
 
 /* Footer */
