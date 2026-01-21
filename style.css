@@ -1,1 +1,212 @@
-/* Add you CSS here */
+/* Reset default browser spacing */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body - main page settings */
+body {
+  font-family: Arial, sans-serif; /* Simple, readable font */
+  line-height: 1.6; /* Space between lines of text */
+  color: #333; /* Dark gray text color */
+}
+
+/* Header and Navigation */
+header {
+  background-color: #2c3e50; /* Dark blue background */
+  color: white;
+  padding: 20px 0; /* Space above and below */
+  position: sticky; /* Keeps header at top when scrolling */
+  top: 0;
+  z-index: 100; /* Makes sure header stays on top */
+}
+
+nav {
+  max-width: 1200px; /* Maximum width of content */
+  margin: 0 auto; /* Centers the nav */
+  padding: 0 20px; /* Space on left and right */
+  display: flex; /* Allows side-by-side layout */
+  justify-content: space-between; /* Spaces items apart */
+  align-items: center; /* Vertically centers items */
+}
+
+nav h1 {
+  font-size: 24px;
+}
+
+/* Navigation list */
+nav ul {
+  list-style: none; /* Removes bullet points */
+  display: flex; /* Makes list items horizontal */
+  gap: 20px; /* Space between menu items */
+}
+
+nav a {
+  color: white;
+  text-decoration: none; /* Removes underline */
+  font-size: 16px;
+}
+
+nav a:hover {
+  color: #3498db; /* Light blue when hovering */
+}
+
+/* All sections */
+section {
+  max-width: 1200px; /* Maximum width */
+  margin: 0 auto; /* Centers the section */
+  padding: 60px 20px; /* Space inside section */
+}
+
+/* Section headings */
+section h2 {
+  font-size: 32px;
+  margin-bottom: 20px; /* Space below heading */
+  text-align: center;
+  color: #2c3e50; /* Dark blue */
+}
+
+/* Hero Section - First section with welcome message */
+#hero {
+  background-color: #3498db; /* Blue background */
+  color: white;
+  text-align: center;
+  padding: 100px 20px; /* Extra padding for impact */
+}
+
+#hero h2 {
+  font-size: 48px;
+  color: white;
+  margin-bottom: 20px;
+}
+
+#hero p {
+  font-size: 20px;
+  max-width: 600px;
+  margin: 0 auto; /* Centers the paragraph */
+}
+
+/* About Section */
+#about {
+  background-color: #f8f9fa; /* Light gray background */
+}
+
+#about p {
+  max-width: 800px;
+  margin: 10px auto; /* Centers paragraphs */
+  font-size: 18px;
+  text-align: center;
+}
+
+/* Skills Section */
+#skills {
+  background-color: white;
+}
+
+/* Container for skill boxes */
+.skills-container {
+  display: flex; /* Places boxes side by side */
+  justify-content: center; /* Centers the boxes */
+  gap: 30px; /* Space between boxes */
+  margin-top: 40px;
+  flex-wrap: wrap; /* Wraps to next line on small screens */
+}
+
+/* Individual skill box */
+.skill-box {
+  background-color: #ecf0f1; /* Light gray */
+  padding: 30px;
+  border-radius: 8px; /* Rounded corners */
+  text-align: center;
+  width: 250px; /* Fixed width */
+}
+
+.skill-box h3 {
+  color: #2c3e50;
+  margin-bottom: 10px;
+  font-size: 24px;
+}
+
+.skill-box p {
+  color: #555;
+  font-size: 16px;
+}
+
+/* Projects Section */
+#projects {
+  background-color: #f8f9fa;
+}
+
+/* Container for project cards */
+.projects-container {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin-top: 40px;
+  flex-wrap: wrap; /* Wraps cards on smaller screens */
+}
+
+/* Individual project card */
+.project-card {
+  background-color: white;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Subtle shadow */
+  width: 300px;
+  text-align: center;
+}
+
+.project-card h3 {
+  color: #2c3e50;
+  margin-bottom: 15px;
+  font-size: 22px;
+}
+
+.project-card p {
+  color: #666;
+  margin-bottom: 20px;
+  font-size: 16px;
+}
+
+.project-card a {
+  display: inline-block; /* Makes link behave like a button */
+  background-color: #3498db;
+  color: white;
+  padding: 10px 20px;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+.project-card a:hover {
+  background-color: #2980b9; /* Darker blue on hover */
+}
+
+/* Contact Section */
+#contact {
+  background-color: white;
+  text-align: center;
+}
+
+#contact p {
+  font-size: 18px;
+  margin: 10px 0;
+}
+
+#contact a {
+  color: #3498db;
+  text-decoration: none;
+}
+
+#contact a:hover {
+  text-decoration: underline;
+}
+
+/* Footer */
+footer {
+  background-color: #2c3e50;
+  color: white;
+  text-align: center;
+  padding: 20px;
+  font-size: 14px;
+}
