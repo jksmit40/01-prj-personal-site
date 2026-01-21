@@ -16,18 +16,22 @@ body {
   line-height: 1.8; /* More space between lines */
   color: #e5e7eb; /* Light gray text color for dark theme */
   background-color: #0f1419; /* Very dark background */
+  background-image: url('img/aurora-b.jpg'); /* Aurora background image */
+  background-size: cover; /* Makes image fill the entire background */
+  background-attachment: fixed; /* Creates parallax effect */
   font-size: 18px; /* Slightly larger base font size */
 }
 
 /* Header and Navigation */
 header {
-  background-color: #1a1a1a; /* Very dark background */
+  background-color: rgba(26, 26, 26, 0.85); /* Semi-transparent dark background */
   color: white;
   padding: 20px 0; /* Space above and below */
   position: sticky; /* Keeps header at top when scrolling */
   top: 0;
   z-index: 100; /* Makes sure header stays on top */
   border-bottom: 2px solid #14b8a6; /* Teal accent border */
+  backdrop-filter: blur(10px); /* Adds blur effect for modern look */
 }
 
 nav {
@@ -37,6 +41,28 @@ nav {
   display: flex; /* Allows side-by-side layout */
   justify-content: space-between; /* Spaces items apart */
   align-items: center; /* Vertically centers items */
+}
+
+/* Navigation brand - container for logo and title */
+.nav-brand {
+  display: flex; /* Places icon and text side by side */
+  align-items: center; /* Vertically centers items */
+  gap: 15px; /* Space between icon and text */
+}
+
+/* Navigation icon */
+.nav-icon {
+  width: 45px; /* Size of the icon */
+  height: 45px;
+  border-radius: 50%; /* Makes it circular */
+  border: 2px solid #14b8a6; /* Teal border */
+  object-fit: cover; /* Covers the circular area */
+  transition: all 0.3s ease; /* Smooth animation */
+}
+
+.nav-icon:hover {
+  transform: scale(1.1); /* Slightly enlarge on hover */
+  box-shadow: 0 0 15px rgba(20, 184, 166, 0.5); /* Glowing effect */
 }
 
 nav h1 {
@@ -69,6 +95,7 @@ section {
   max-width: 1200px; /* Maximum width */
   margin: 0 auto; /* Centers the section */
   padding: 100px 20px; /* More space inside sections - minimalist approach */
+  background-color: rgba(15, 20, 25, 0.75); /* Semi-transparent overlay for readability */
 }
 
 /* Section headings */
@@ -83,13 +110,7 @@ section h2 {
 
 /* Hero Section - First section with welcome message */
 #hero {
-  background: linear-gradient(135deg, rgba(15, 20, 25, 0.95) 0%, rgba(20, 184, 166, 0.85) 100%);
-  /* If you want to add a background image, uncomment below and add your image to img/ folder:
-  background-image: url('img/hero-background.jpg');
-  background-size: cover;
-  background-position: center;
-  background-blend-mode: overlay;
-  */
+  background: rgba(15, 20, 25, 0.70); /* Semi-transparent dark overlay */
   color: white;
   text-align: center;
   padding: 180px 20px; /* Much more padding for impact */
@@ -141,7 +162,7 @@ section h2 {
 
 /* About Section */
 #about {
-  background-color: #1a1a1a; /* Dark background */
+  background-color: rgba(26, 26, 26, 0.75); /* Semi-transparent dark background */
 }
 
 #about p {
@@ -154,7 +175,7 @@ section h2 {
 
 /* Skills Section */
 #skills {
-  background-color: #0f1419; /* Very dark background */
+  background-color: rgba(15, 20, 25, 0.75); /* Semi-transparent background */
 }
 
 /* Container for skill boxes */
@@ -168,7 +189,7 @@ section h2 {
 
 /* Individual skill box */
 .skill-box {
-  background-color: #1a1a1a; /* Dark background */
+  background-color: rgba(26, 26, 26, 0.85); /* Semi-transparent dark background */
   padding: 40px; /* More padding */
   border-radius: 12px; /* More rounded corners */
   text-align: center;
@@ -176,6 +197,7 @@ section h2 {
   border: 2px solid #14b8a6; /* Teal border */
   transition: all 0.3s ease; /* Smooth animation */
   cursor: pointer;
+  backdrop-filter: blur(8px); /* Adds subtle blur effect */
 }
 
 .skill-box:hover {
@@ -198,7 +220,7 @@ section h2 {
 
 /* Projects Section */
 #projects {
-  background-color: #1a1a1a; /* Dark background */
+  background-color: rgba(26, 26, 26, 0.75); /* Semi-transparent dark background */
 }
 
 /* Container for project cards */
@@ -212,13 +234,14 @@ section h2 {
 
 /* Individual project card */
 .project-card {
-  background-color: #1a1a1a; /* Dark background */
+  background-color: rgba(26, 26, 26, 0.85); /* Semi-transparent dark background */
   border-radius: 12px;
   box-shadow: 0 4px 20px rgba(20, 184, 166, 0.15); /* Softer shadow */
   width: 350px; /* Slightly wider */
   overflow: hidden; /* Keeps content inside rounded corners */
   transition: all 0.3s ease;
   border: 1px solid #2d2d2d; /* Subtle border */
+  backdrop-filter: blur(8px); /* Adds subtle blur effect */
 }
 
 .project-card:hover {
@@ -286,7 +309,7 @@ section h2 {
 
 /* Contact Section */
 #contact {
-  background-color: #0f1419; /* Very dark background */
+  background-color: rgba(15, 20, 25, 0.75); /* Semi-transparent background */
   text-align: center;
 }
 
@@ -309,10 +332,11 @@ section h2 {
 
 /* Footer */
 footer {
-  background-color: #1a1a1a; /* Dark background */
+  background-color: rgba(26, 26, 26, 0.85); /* Semi-transparent dark background */
   color: #9ca3af; /* Light gray text */
   text-align: center;
   padding: 20px;
   font-size: 14px;
   border-top: 2px solid #14b8a6; /* Teal accent border */
+  backdrop-filter: blur(10px); /* Adds blur effect */
 }
