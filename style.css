@@ -23,26 +23,6 @@ body {
   animation: slowShiftWithColor 15s ease-in-out infinite; /* Shifts and changes color */
 }
 
-/* Combined animation - shifts background and changes colors like aurora */
-@keyframes slowShiftWithColor {
-  0%, 100% {
-    background-position: 0% 0%; /* Starting position */
-    filter: hue-rotate(0deg) brightness(0.95); /* Starting color */
-  }
-  25% {
-    background-position: 4% 2%; /* Move right and slightly down */
-    filter: hue-rotate(15deg) brightness(1); /* Shift towards cyan */
-  }
-  50% {
-    background-position: 8% 4%; /* Move more to the right */
-    filter: hue-rotate(30deg) brightness(1.05); /* More vibrant cyan/teal */
-  }
-  75% {
-    background-position: 4% 2%; /* Come back towards center */
-    filter: hue-rotate(15deg) brightness(1); /* Shift back */
-  }
-}
-
 /* Header and Navigation */
 header {
   background-color: rgba(26, 26, 26, 0.85); /* Semi-transparent dark background */
@@ -89,15 +69,34 @@ nav {
 nav h1 {
   font-size: 28px; /* Larger, more prominent text */
   font-weight: 700; /* Bold weight */
-  color: #06d6a0; /* Brighter teal accent color */
+  /* color: #06d6a0; Brighter teal accent color */
   letter-spacing: 0.5px; /* Slightly more spaced letters */
   transition: all 0.3s ease; /* Smooth animation on hover */
-  text-shadow: 0 0 25px rgba(20, 184, 166, 0.9); /* Bright glowing effect */
+  /*text-shadow: 0 0 25px rgba(20, 184, 166, 0.9);  Bright glowing effect */
+  /* Creates a flowing gradient text effect with aurora colors */
+  background:linear-gradient(
+    to right,
+    #14b8a6,
+    #a78bfa,
+    #34d399,
+    #14b8a6);
+    background-clip: text; /* Clips background to text shape */
+    -webkit-text-fill-color: transparent; /* Makes text transparent to show gradient */
+    background-size: 200% auto; /* Makes gradient larger so it can move */
+    animation: shine 5s linear infinite; /* Applies the shine animation */
+}
+
+/* Shine animation - moves the gradient across the text to create a flowing effect */
+@keyframes shine {
+  0% {
+    background-position: 0% 50%; /* Gradient starts on the left */
+  }
+  100% {
+    background-position: 200% 50%; /* Gradient slides to the right */
+  }
 }
 
 nav h1:hover {
-  color: #00ffcc; /* Even brighter cyan on hover */
-  text-shadow: 0 0 40px rgba(20, 184, 166, 1); /* Maximum glow on hover */
   transform: scale(1.05); /* Slightly enlarge on hover */
 }
 
@@ -615,4 +614,24 @@ footer {
   font-size: 14px;
   border-top: 2px solid #14b8a6; /* Teal accent border */
   backdrop-filter: blur(10px); /* Adds blur effect */
+}
+
+/* Combined animation - shifts background and changes colors like aurora */
+@keyframes slowShiftWithColor {
+  0%, 100% {
+    background-position: 0% 0%; /* Starting position */
+    filter: hue-rotate(0deg) brightness(0.95); /* Starting color */
+  }
+  25% {
+    background-position: 4% 2%; /* Move right and slightly down */
+    filter: hue-rotate(15deg) brightness(1); /* Shift towards cyan */
+  }
+  50% {
+    background-position: 8% 4%; /* Move more to the right */
+    filter: hue-rotate(30deg) brightness(1.05); /* More vibrant cyan/teal */
+  }
+  75% {
+    background-position: 4% 2%; /* Come back towards center */
+    filter: hue-rotate(15deg) brightness(1); /* Shift back */
+  }
 }
