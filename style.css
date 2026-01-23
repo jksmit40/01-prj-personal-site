@@ -1,3 +1,61 @@
+/* ========================================
+   CSS VARIABLES - Color Theme System
+   ======================================== */
+/* 
+  CSS Variables let us define colors once and reuse them everywhere.
+  :root = applies to the entire page (this is our DEFAULT/DARK theme)
+*/
+:root {
+  /* Background colors - dark theme */
+  --bg-body: #0f1419; /* Main page background */
+  --bg-section: rgba(15, 20, 25, 0.75); /* Section background */
+  --bg-section-alt: rgba(26, 26, 26, 0.75); /* Alternate section background */
+  --bg-card: rgba(26, 26, 26, 0.85); /* Card/box background */
+  --bg-header: rgba(26, 26, 26, 0.85); /* Header background */
+  
+  /* Text colors - dark theme */
+  --text-primary: #e5e7eb; /* Main text color (light gray) */
+  --text-secondary: #9ca3af; /* Secondary text (medium gray) */
+  --text-white: white; /* Pure white for nav and headings */
+  
+  /* Accent colors - stay the same in both themes */
+  --accent-teal: #14b8a6; /* Main teal accent */
+  --accent-teal-dark: #0d9488; /* Darker teal for hovers */
+  
+  /* Border colors */
+  --border-subtle: #2d2d2d; /* Subtle borders */
+  --border-accent: #14b8a6; /* Accent borders */
+  
+  /* Aurora background - dark version */
+  --bg-image: url('img/aurora-b.jpg');
+}
+
+/* 
+  LIGHT THEME - activated when data-theme="light" 
+  When the toggle button is clicked, we add data-theme="light" to the <html> tag.
+  This changes all the color variables to light mode values!
+*/
+[data-theme="light"] {
+  /* Background colors - light theme */
+  --bg-body: #f0f4f8; /* Light blue-gray background */
+  --bg-section: rgba(255, 255, 255, 0.85); /* Light semi-transparent white */
+  --bg-section-alt: rgba(248, 250, 252, 0.85); /* Slightly darker white */
+  --bg-card: rgba(255, 255, 255, 0.95); /* Almost solid white cards */
+  --bg-header: rgba(255, 255, 255, 0.95); /* Light header */
+  
+  /* Text colors - light theme */
+  --text-primary: #1f2937; /* Dark gray for main text */
+  --text-secondary: #6b7280; /* Medium gray for secondary text */
+  --text-white: #1f2937; /* Dark text instead of white */
+  
+  /* Border colors in light mode */
+  --border-subtle: #e5e7eb; /* Light gray borders */
+  --border-accent: #14b8a6; /* Teal stays the same */
+  
+  /* Could add a lighter aurora background for light mode */
+  /* --bg-image: url('img/aurora-light.jpg'); */
+}
+
 /* Reset default browser spacing */
 * {
   margin: 0;
@@ -14,25 +72,27 @@ html {
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Modern, clean font */
   line-height: 1.8; /* More space between lines */
-  color: #e5e7eb; /* Light gray text color for dark theme */
-  background-color: #0f1419; /* Very dark background */
-  background-image: url('img/aurora-b.jpg'); /* Aurora background image */
+  color: var(--text-primary); /* Uses CSS variable - changes with theme! */
+  background-color: var(--bg-body); /* Uses CSS variable - changes with theme! */
+  background-image: var(--bg-image); /* Aurora background image */
   background-size: cover; /* Makes image fill the entire background */
   background-attachment: fixed; /* Creates parallax effect */
   font-size: 18px; /* Slightly larger base font size */
   animation: slowShiftWithColor 15s ease-in-out infinite; /* Shifts and changes color */
+  transition: background-color 0.3s ease, color 0.3s ease; /* Smooth theme transition */
 }
 
 /* Header and Navigation */
 header {
-  background-color: rgba(26, 26, 26, 0.85); /* Semi-transparent dark background */
-  color: white;
+  background-color: var(--bg-header); /* Uses CSS variable - changes with theme! */
+  color: var(--text-white); /* Uses CSS variable */
   padding: 20px 0; /* Space above and below */
   position: sticky; /* Keeps header at top when scrolling */
   top: 0;
   z-index: 100; /* Makes sure header stays on top */
-  border-bottom: 2px solid #14b8a6; /* Teal accent border */
+  border-bottom: 2px solid var(--border-accent); /* Teal accent border */
   backdrop-filter: blur(10px); /* Adds blur effect for modern look */
+  transition: background-color 0.3s ease; /* Smooth theme transition */
 }
 
 nav {
@@ -56,7 +116,7 @@ nav {
   width: 45px; /* Size of the icon */
   height: 45px;
   border-radius: 50%; /* Makes it circular */
-  border: 2px solid #14b8a6; /* Teal border */
+  border: 2px solid var(--border-accent); /* Uses CSS variable */
   object-fit: cover; /* Covers the circular area */
   transition: all 0.3s ease; /* Smooth animation */
 }
@@ -108,7 +168,7 @@ nav ul {
 }
 
 nav a {
-  color: white;
+  color: var(--text-white); /* Uses CSS variable - changes with theme! */
   text-decoration: none; /* Removes underline */
   font-size: 16px;
   transition: all 0.3s ease; /* Smooth transition effect */
@@ -117,7 +177,7 @@ nav a {
 }
 
 nav a:hover {
-  color: #14b8a6; /* Teal when hovering */
+  color: var(--accent-teal); /* Teal when hovering */
   background-color: rgba(20, 184, 166, 0.1); /* Subtle background on hover */
 }
 
@@ -126,7 +186,8 @@ section {
   max-width: 1200px; /* Maximum width */
   margin: 0 auto; /* Centers the section */
   padding: 100px 20px; /* More space inside sections - minimalist approach */
-  background-color: rgba(15, 20, 25, 0.75); /* Semi-transparent overlay for readability */
+  background-color: var(--bg-section); /* Uses CSS variable - changes with theme! */
+  transition: background-color 0.3s ease; /* Smooth theme transition */
 }
 
 /* Section headings */
@@ -135,20 +196,21 @@ section h2 {
   font-weight: 700; /* Bolder text */
   margin-bottom: 60px; /* More space below heading */
   text-align: center;
-  color: #14b8a6; /* Teal accent */
+  color: var(--accent-teal); /* Teal accent - stays same in both themes! */
   letter-spacing: -1px; /* Tighter letter spacing for modern look */
 }
 
 /* Hero Section - First section with welcome message */
 #hero {
-  background: rgba(15, 20, 25, 0.70); /* Semi-transparent dark overlay */
-  color: white;
+  background: var(--bg-section); /* Uses CSS variable - changes with theme! */
+  color: var(--text-white); /* Uses CSS variable */
   text-align: center;
   padding: 180px 20px; /* Much more padding for impact */
   min-height: 100vh; /* Full screen height */
   display: flex;
   align-items: center;
   justify-content: center;
+  transition: background-color 0.3s ease; /* Smooth theme transition */
 }
 
 .hero-layout {
@@ -166,7 +228,7 @@ section h2 {
 .hero-photo {
   width: 100%; /* Make photo fill its wrapper */
   border-radius: 12px; /* Soft rounded square */
-  border: 4px solid #14b8a6; /* Teal border */
+  border: 4px solid var(--border-accent); /* Uses CSS variable */
   box-shadow: 0 12px 35px rgba(20, 184, 166, 0.5); /* Glowing shadow */
   object-fit: cover; /* Crop nicely */
   animation: counterColorShift 15s ease-in-out infinite; /* Cancels out the background color animation */
@@ -196,7 +258,7 @@ section h2 {
 #hero h2 {
   font-size: 48px; /* Balanced heading size */
   font-weight: 800; /* Extra bold */
-  color: white;
+  color: var(--text-white); /* Uses CSS variable */
   margin-bottom: 12px; /* Tighter spacing */
   letter-spacing: -1px; /* Moderate spacing */
   line-height: 1.1; /* Tighter line height */
@@ -216,7 +278,7 @@ section h2 {
   font-size: 28px; /* Larger subtitle */
   font-weight: 300; /* Light weight for contrast */
   margin-bottom: 20px;
-  color: #14b8a6;
+  color: var(--accent-teal); /* Teal accent */
   animation: fadeInUp 1.2s ease-out;
 }
 
@@ -243,7 +305,7 @@ section h2 {
 
 /* Primary button - main call to action */
 .btn-primary {
-  background-color: #14b8a6; /* Teal background */
+  background-color: var(--accent-teal); /* Uses CSS variable */
   color: white;
   padding: 15px 40px; /* Button size */
   text-decoration: none;
@@ -251,11 +313,11 @@ section h2 {
   font-weight: 600;
   font-size: 18px;
   transition: all 0.3s ease;
-  border: 2px solid #14b8a6;
+  border: 2px solid var(--accent-teal);
 }
 
 .btn-primary:hover {
-  background-color: #0d9488; /* Darker teal */
+  background-color: var(--accent-teal-dark); /* Uses CSS variable */
   transform: translateY(-3px); /* Lift effect */
   box-shadow: 0 10px 30px rgba(20, 184, 166, 0.4); /* Glow effect */
 }
@@ -263,18 +325,18 @@ section h2 {
 /* Secondary button - alternative action */
 .btn-secondary {
   background-color: transparent; /* Transparent background */
-  color: #14b8a6; /* Teal text */
+  color: var(--accent-teal); /* Uses CSS variable */
   padding: 15px 40px;
   text-decoration: none;
   border-radius: 8px;
   font-weight: 600;
   font-size: 18px;
   transition: all 0.3s ease;
-  border: 2px solid #14b8a6; /* Teal border */
+  border: 2px solid var(--accent-teal); /* Uses CSS variable */
 }
 
 .btn-secondary:hover {
-  background-color: #14b8a6; /* Teal background on hover */
+  background-color: var(--accent-teal); /* Uses CSS variable */
   color: white; /* White text on hover */
   transform: translateY(-3px);
   box-shadow: 0 10px 30px rgba(20, 184, 166, 0.4);
@@ -294,7 +356,8 @@ section h2 {
 
 /* About Section */
 #about {
-  background-color: rgba(26, 26, 26, 0.75); /* Semi-transparent dark background */
+  background-color: var(--bg-section-alt); /* Uses CSS variable - changes with theme! */
+  transition: background-color 0.3s ease; /* Smooth theme transition */
 }
 
 /* About container with sidebar layout */
@@ -320,7 +383,7 @@ section h2 {
   top: 0;
   bottom: 0;
   width: 4px; /* Thin accent bar */
-  background-color: #14b8a6; /* Teal color */
+  background-color: var(--accent-teal); /* Uses CSS variable */
   border-radius: 2px;
 }
 
@@ -341,13 +404,13 @@ section h2 {
   border: 2px solid rgba(20, 184, 166, 0.3); /* Subtle border */
   border-radius: 8px; /* Rounded corners */
   padding: 8px;
-  background-color: rgba(26, 26, 26, 0.5); /* Subtle background */
+  background-color: var(--bg-card); /* Uses CSS variable */
 }
 
 .about-icon:hover {
   transform: translateX(8px) scale(1.1); /* Slide and scale on hover */
-  border-color: #14b8a6; /* Brighter border */
-  background-color: rgba(26, 26, 26, 0.85);
+  border-color: var(--accent-teal); /* Brighter border */
+  background-color: var(--bg-card);
 }
 
 /* About content text */
@@ -366,7 +429,8 @@ section h2 {
 
 /* Skills Section */
 #skills {
-  background-color: rgba(15, 20, 25, 0.75); /* Semi-transparent background */
+  background-color: var(--bg-section); /* Uses CSS variable - changes with theme! */
+  transition: background-color 0.3s ease; /* Smooth theme transition */
 }
 
 /* Container for skill boxes */
@@ -380,12 +444,12 @@ section h2 {
 
 /* Individual skill box */
 .skill-box {
-  background-color: rgba(26, 26, 26, 0.85); /* Semi-transparent dark background */
+  background-color: var(--bg-card); /* Uses CSS variable - changes with theme! */
   padding: 40px; /* More padding */
   border-radius: 12px; /* More rounded corners */
   text-align: center;
   width: 250px; /* Fixed width */
-  border: 2px solid #14b8a6; /* Teal border */
+  border: 2px solid var(--border-accent); /* Uses CSS variable */
   transition: all 0.3s ease; /* Smooth animation */
   cursor: pointer;
   backdrop-filter: blur(8px); /* Adds subtle blur effect */
@@ -394,24 +458,25 @@ section h2 {
 .skill-box:hover {
   transform: translateY(-10px); /* Lift up on hover */
   box-shadow: 0 10px 30px rgba(20, 184, 166, 0.6); /* Brighter glowing shadow on hover */
-  border-color: #0d9488;
+  border-color: var(--accent-teal-dark);
 }
 
 .skill-box h3 {
-  color: #14b8a6; /* Teal accent */
+  color: var(--accent-teal); /* Uses CSS variable */
   margin-bottom: 15px;
   font-size: 26px; /* Larger heading */
   font-weight: 700;
 }
 
 .skill-box p {
-  color: #9ca3af; /* Light gray text */
+  color: var(--text-secondary); /* Uses CSS variable - changes with theme! */
   font-size: 16px;
 }
 
 /* Projects Section */
 #projects {
-  background-color: rgba(26, 26, 26, 0.75); /* Semi-transparent dark background */
+  background-color: var(--bg-section-alt); /* Uses CSS variable - changes with theme! */
+  transition: background-color 0.3s ease; /* Smooth theme transition */
 }
 
 /* Container for project cards */
@@ -425,13 +490,13 @@ section h2 {
 
 /* Individual project card */
 .project-card {
-  background-color: rgba(26, 26, 26, 0.85); /* Semi-transparent dark background */
+  background-color: var(--bg-card); /* Uses CSS variable - changes with theme! */
   border-radius: 12px;
   box-shadow: 0 4px 20px rgba(20, 184, 166, 0.15); /* Softer shadow */
   width: 350px; /* Slightly wider */
   overflow: hidden; /* Keeps content inside rounded corners */
   transition: all 0.3s ease;
-  border: 1px solid #2d2d2d; /* Subtle border */
+  border: 1px solid var(--border-subtle); /* Uses CSS variable */
   backdrop-filter: blur(8px); /* Adds subtle blur effect */
 }
 
@@ -469,14 +534,14 @@ section h2 {
 }
 
 .project-card h3 {
-  color: #14b8a6; /* Teal accent */
+  color: var(--accent-teal); /* Uses CSS variable */
   margin-bottom: 15px;
   font-size: 24px; /* Larger title */
   font-weight: 700;
 }
 
 .project-card p {
-  color: #9ca3af; /* Light gray text */
+  color: var(--text-secondary); /* Uses CSS variable - changes with theme! */
   margin-bottom: 25px;
   font-size: 16px;
   line-height: 1.6;
@@ -494,17 +559,17 @@ section h2 {
 /* Individual technology tag */
 .tag {
   background-color: rgba(20, 184, 166, 0.2); /* Light teal background */
-  color: #14b8a6; /* Teal text */
+  color: var(--accent-teal); /* Uses CSS variable */
   padding: 5px 15px; /* Tag size */
   border-radius: 20px; /* Rounded pill shape */
   font-size: 14px;
   font-weight: 600;
-  border: 1px solid #14b8a6; /* Teal border */
+  border: 1px solid var(--accent-teal); /* Uses CSS variable */
 }
 
 .project-card a {
   display: inline-block; /* Makes link behave like a button */
-  background-color: #14b8a6; /* Teal background */
+  background-color: var(--accent-teal); /* Uses CSS variable */
   color: white;
   padding: 12px 30px; /* Larger button */
   text-decoration: none;
@@ -514,14 +579,15 @@ section h2 {
 }
 
 .project-card a:hover {
-  background-color: #0d9488; /* Darker teal on hover */
+  background-color: var(--accent-teal-dark); /* Uses CSS variable */
   transform: scale(1.05); /* Slight grow effect */
 }
 
 /* Contact Section */
 #contact {
-  background-color: rgba(15, 20, 25, 0.75); /* Semi-transparent background */
+  background-color: var(--bg-section); /* Uses CSS variable - changes with theme! */
   text-align: center;
+  transition: background-color 0.3s ease; /* Smooth theme transition */
 }
 
 #contact p {
@@ -530,14 +596,14 @@ section h2 {
 }
 
 #contact a {
-  color: #14b8a6; /* Teal links */
+  color: var(--accent-teal); /* Uses CSS variable */
   text-decoration: none;
   transition: all 0.3s ease;
   font-weight: 600;
 }
 
 #contact a:hover {
-  color: #0d9488; /* Darker teal on hover */
+  color: var(--accent-teal-dark); /* Uses CSS variable */
   text-decoration: underline;
 }
 
@@ -552,10 +618,10 @@ section h2 {
 
 /* Individual social link button */
 .social-link {
-  background-color: rgba(26, 26, 26, 0.85); /* Semi-transparent dark background */
+  background-color: var(--bg-card); /* Uses CSS variable - changes with theme! */
   padding: 20px 30px; /* Space inside button */
   border-radius: 12px; /* Rounded corners */
-  border: 2px solid #14b8a6; /* Teal border */
+  border: 2px solid var(--border-accent); /* Uses CSS variable */
   display: flex; /* Allows icon and text side by side */
   flex-direction: column; /* Stacks icon above text */
   align-items: center; /* Centers content */
@@ -568,8 +634,8 @@ section h2 {
 .social-link:hover {
   transform: translateY(-5px); /* Lift up on hover */
   box-shadow: 0 10px 30px rgba(20, 184, 166, 0.6); /* Brighter glowing shadow */
-  border-color: #0d9488; /* Darker teal border */
-  background-color: rgba(26, 26, 26, 0.95); /* Slightly more solid */
+  border-color: var(--accent-teal-dark); /* Uses CSS variable */
+  background-color: var(--bg-card);
 }
 
 /* Social media icon */
@@ -596,24 +662,57 @@ section h2 {
 
 /* Social media text label */
 .social-text {
-  color: #14b8a6; /* Teal text */
+  color: var(--accent-teal); /* Uses CSS variable */
   font-size: 16px;
   font-weight: 600;
 }
 
 .social-link:hover .social-text {
-  color: #0d9488; /* Darker teal on hover */
+  color: var(--accent-teal-dark); /* Uses CSS variable */
+}
+
+/* ========================================
+   THEME TOGGLE BUTTON
+   ======================================== */
+/* 
+  This button lets users switch between light and dark themes.
+  It's positioned in the header navigation.
+*/
+.theme-toggle {
+  background-color: var(--accent-teal); /* Teal background */
+  color: white;
+  border: 2px solid var(--accent-teal);
+  padding: 8px 16px; /* Button size */
+  border-radius: 20px; /* Rounded pill shape */
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer; /* Shows it's clickable */
+  transition: all 0.3s ease; /* Smooth animation */
+  display: flex; /* Centers icon and text */
+  align-items: center;
+  gap: 6px; /* Space between icon and text */
+}
+
+.theme-toggle:hover {
+  background-color: var(--accent-teal-dark); /* Darker on hover */
+  transform: translateY(-2px); /* Slight lift effect */
+  box-shadow: 0 4px 12px rgba(20, 184, 166, 0.4); /* Glow effect */
+}
+
+.theme-toggle:active {
+  transform: translateY(0); /* Pressed effect */
 }
 
 /* Footer */
 footer {
-  background-color: rgba(26, 26, 26, 0.85); /* Semi-transparent dark background */
-  color: #9ca3af; /* Light gray text */
+  background-color: var(--bg-header); /* Uses CSS variable - changes with theme! */
+  color: var(--text-secondary); /* Uses CSS variable - changes with theme! */
   text-align: center;
   padding: 20px;
   font-size: 14px;
-  border-top: 2px solid #14b8a6; /* Teal accent border */
+  border-top: 2px solid var(--border-accent); /* Uses CSS variable */
   backdrop-filter: blur(10px); /* Adds blur effect */
+  transition: background-color 0.3s ease, color 0.3s ease; /* Smooth theme transition */
 }
 
 /* Combined animation - shifts background and changes colors like aurora */
