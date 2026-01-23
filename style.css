@@ -37,16 +37,18 @@
 */
 [data-theme="light"] {
   /* Background colors - light theme */
-  --bg-body: #f0f4f8; /* Light blue-gray background */
-  --bg-section: rgba(255, 255, 255, 0.85); /* Light semi-transparent white */
-  --bg-section-alt: rgba(248, 250, 252, 0.85); /* Slightly darker white */
-  --bg-card: rgba(255, 255, 255, 0.95); /* Almost solid white cards */
-  --bg-header: rgba(255, 255, 255, 0.95); /* Light header */
+  /* Using warm off-whites instead of pure white to be easier on the eyes */
+  --bg-body: #faf8f3; /* Warm off-white background instead of cool blue-gray */
+  --bg-section: rgba(245, 240, 235, 0.95); /* Warm beige sections with subtle tint */
+  --bg-section-alt: rgba(240, 235, 228, 0.95); /* Slightly warmer alternate sections */
+  --bg-card: rgba(252, 251, 248, 0.98); /* Warm off-white cards */
+  --bg-header: rgba(252, 251, 248, 0.98); /* Warm off-white header */
   
   /* Text colors - light theme */
-  --text-primary: #1f2937; /* Dark gray for main text */
-  --text-secondary: #6b7280; /* Medium gray for secondary text */
-  --text-white: #1f2937; /* Dark text instead of white */
+  /* Softened text colors to reduce eye strain from high contrast */
+  --text-primary: #2d3748; /* Softer dark gray (easier on eyes than pure dark) */
+  --text-secondary: #718096; /* Softer medium gray */
+  --text-white: #2d3748; /* Dark text instead of white */
   
   /* Border colors in light mode */
   --border-subtle: #e5e7eb; /* Light gray borders */
